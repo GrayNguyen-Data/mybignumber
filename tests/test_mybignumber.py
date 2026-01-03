@@ -12,32 +12,34 @@ class TestMyBigNumber(unittest.TestCase):
     def setUp(self):
         self.bn = MyBigNumber()
     
+    # Cộng cơ bản
     def test_basic_addition(self):
         result = self.bn.sum("1234", "897")
         self.assertEqual(result, "2131")
     
+    # Cộng có nhớ
     def test_addition_with_carry(self):
         result = self.bn.sum("999", "1")
         self.assertEqual(result, "1000")
-    
+    #Cộng số rất lớn
     def test_large_numbers(self):
         result = self.bn.sum("12345678901234567890", "98765432109876543210")
         self.assertEqual(result, "111111111011111111100")
-    
+    # Cộng với 0
     def test_zero_addition(self):
         self.assertEqual(self.bn.sum("0", "0"), "0")
         self.assertEqual(self.bn.sum("123", "0"), "123")
         self.assertEqual(self.bn.sum("0", "456"), "456")
-    
+    # Hai số có độ dài khác nhau
     def test_different_lengths(self):
         self.assertEqual(self.bn.sum("100", "200"), "300")
         self.assertEqual(self.bn.sum("1", "999999"), "1000000")
         self.assertEqual(self.bn.sum("123456", "7"), "123463")
-    
+    # Cộng 1 chữ số
     def test_single_digit(self):
         self.assertEqual(self.bn.sum("5", "3"), "8")
         self.assertEqual(self.bn.sum("9", "9"), "18")
-    
+    # Cộng nhưng có nhiều nhớ 
     def test_multiple_carries(self):
         self.assertEqual(self.bn.sum("9999", "1"), "10000")
         self.assertEqual(self.bn.sum("888", "222"), "1110")

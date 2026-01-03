@@ -86,7 +86,7 @@ Server chạy tại: `http://localhost:5000`
 
 **1. GET / - API Documentation**
 ```bash
-curl http://localhost:5000/
+curl.exe "http://localhost:5000/add_get?num1=123&num2=456"
 ```
 
 **2. POST /add - Cộng 2 số (JSON)**
